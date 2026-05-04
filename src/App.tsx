@@ -5,6 +5,8 @@ function App() {
   // state for dark mode
   const [darkMode, setDarkMode] = useState(false);
 
+  const [tasks] = useState(["Finish React project", "Commit changes to GitHub", "Practice presentation",])
+
   return (
     <main className={darkMode ? "app dark" : "app"}>
       <h1>React Task Tracker</h1>
@@ -13,6 +15,12 @@ function App() {
       <button onClick={() => setDarkMode(!darkMode)}>
         {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
       </button>
+
+      <h2> My task </h2>
+
+      <ul> {tasks.map((task, index) => (<li key={index}>{task}</li>))}</ul>
+
+
     </main>
   );
 }

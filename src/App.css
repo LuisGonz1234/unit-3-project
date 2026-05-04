@@ -15,6 +15,13 @@ body {
   color: white;
 }
 
+.dark h1 {
+  color: white;
+}
+.dark h2 {
+  color: white;
+}
+
 button {
   padding: 10px 14px;
   border: none;
