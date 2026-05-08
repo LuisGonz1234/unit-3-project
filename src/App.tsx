@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./App.css";
+import Header from "./components/Header";
+import TaskList from "./components/TaskList";
 
 function App() {
   // state for dark mode
