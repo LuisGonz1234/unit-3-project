@@ -1,14 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import TaskList from "./components/TaskList";
 
 function App() {
   // state for dark mode
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+  const savedMode = localStorage.getItem("darkMode");
+  return savedMode === "true";
+});
 
   const [tasks] = useState(["Finish React project", "Commit changes to GitHub", "Practice presentation",])
+  
+  useEffect(() => {
+  localStorage.setItem("darkMode", String(darkMode));
+}, [darkMode]);
 
+  useEffect(() => {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}, [tasks]);
   return (
     <main className={darkMode ? "app dark" : "app"}>
       <h1>React Task Tracker</h1>
