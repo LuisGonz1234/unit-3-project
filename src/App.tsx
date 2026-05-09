@@ -43,13 +43,11 @@ function addTask() {
 }
   return (
     <main className={darkMode ? "app dark" : "app"}>
-      <h1>React Task Tracker</h1>
-      <p>This app will help me track homework tasks.</p>
+      <Header
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
 
-      <button onClick={() => setDarkMode(!darkMode)}>
-        {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-      </button>
-      
       <div>
         <input
         type="text"
@@ -63,8 +61,7 @@ function addTask() {
 
       <h2> My task </h2>
 
-      <ul> {tasks.map((task: string, index: number) => (<li key={index}>{task}</li>))}</ul>
-
+      <TaskList tasks={tasks} />
 
     </main>
   );
